@@ -10,9 +10,10 @@ body, html
 
 // 内容区
 .el-container
-  height: 100%
-  background: #F0F2F6
   min-width: 980px
+  background: #F0F2F6
+  .el-container
+    height: calc(100% - 60px);
 
 // 主体
 .el-main
@@ -30,11 +31,14 @@ body, html
 // 侧边栏  
 .el-aside
   background: #282A32
+  overflow: auto;
   .el-menu
     .is-active
       background: #1989FA!important
       color: #fff!important
       border-bottom-width: 4px
+.el-main
+  overflow: auto;
 
 // 列表页面统一样式
 .list-content

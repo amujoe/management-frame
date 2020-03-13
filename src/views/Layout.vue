@@ -1,5 +1,10 @@
+<!--
+ * @Author: amujoe
+ * @Date: 2020-03-13 17:26:28
+ * @Description: file content
+ -->
 <template lang="pug">
-  el-container(style="min-height:100vh")
+  el-container(style="height:100vh")
     el-header(style="padding:0")
       header-menu
     router-view

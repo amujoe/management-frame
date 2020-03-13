@@ -1,3 +1,8 @@
+<!--
+ * @Author: amujoe
+ * @Date: 2020-03-13 17:26:28
+ * @Description: file content
+ -->
 <template lang="pug">
   el-container
     el-aside(width="200px" style="border-right: 1px solid #e6e6e6")
@@ -17,6 +22,12 @@ export default {
   data() {
     return {
       list: [
+        {
+          name: "账号管理",
+          path: "/setting/account",
+          icon: "",
+          childs: []
+        },
         {
           name: "微信授权",
           path: "/setting/authorize",

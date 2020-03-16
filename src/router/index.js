@@ -1,6 +1,11 @@
+/*
+ * @Author: amujoe
+ * @Date: 2020-03-13 17:26:28
+ * @Description: file content
+ */
 import Layout from "@/views/Layout";
-import Login from "@/views/Login";
-import NoPage from "@/views/default/NoPage.vue";
+import Login from "@/views/base/login/Login";
+import NoPage from "@/views/base/default/NoPage.vue";
 import Common from "./modules/Common";
 import Home from "./modules/Home";
 import Mall from "./modules/Mall";

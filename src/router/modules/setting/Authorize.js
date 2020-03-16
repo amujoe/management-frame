@@ -1,4 +1,4 @@
-import Authorize from "@/views/setting/authorize/Authorize.vue";
+import Authorize from "@/views/app/setting/authorize/Authorize.vue";
 
 export default [
   {

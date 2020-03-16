@@ -73,7 +73,7 @@ export default {
 .login {
   width: 100%;
   height: 100vh;
-  background: url('../assets/login-bac.jpg');
+  background: url('~@/assets/login-bac.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }

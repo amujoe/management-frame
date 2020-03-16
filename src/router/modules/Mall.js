@@ -1,4 +1,4 @@
-import MallLayout from "@/views/mall/MallLayout";
+import MallLayout from "@/views/app/mall/MallLayout";
 import Goods from "./mall/Goods";
 
 export default [

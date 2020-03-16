@@ -1,5 +1,5 @@
-import GoodsList from "@/views/mall/goods/GoodsList.vue";
-import GoodsCreate from "@/views/mall/goods/GoodsCreate.vue";
+import GoodsList from "@/views/app/mall/goods/GoodsList.vue";
+import GoodsCreate from "@/views/app/mall/goods/GoodsCreate.vue";
 
 export default [
   {

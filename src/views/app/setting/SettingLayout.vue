@@ -24,7 +24,7 @@ export default {
       list: [
         {
           name: "账号管理",
-          path: "/setting/account",
+          path: "/setting/accountList",
           icon: "",
           childs: []
         },

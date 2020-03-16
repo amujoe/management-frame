@@ -3,16 +3,22 @@
  * @Date: 2020-03-13 18:22:11
  * @Description: file content
  */
-import Account from "@/views/setting/account/Account.vue";
+import AccountList from "@/views/app/setting/account/List.vue";
+import AccountCreate from "@/views/app/setting/account/Create.vue";
 
 export default [
   {
-    path: "/setting/account",
-    name: "account",
-    component: Account
+    path: "/setting/accountList",
+    name: "accountList",
+    component: AccountList
+  },
+  {
+    path: "/setting/accountCreate",
+    name: "accountCreate",
+    component: AccountCreate
   },
   {
     path: "/",
-    redirect: { name: "account" }
+    redirect: { name: "accountList" }
   }
 ];

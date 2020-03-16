@@ -2,7 +2,7 @@
   .list-content
     .list-header
       span.list-title 账号
-      el-button(type="primary") 新建账号
+      el-button(type="primary" @click="toCreate") 新建账号
     .list-main
       el-row.main-search(:gutter="10")
         el-col(:span="4")
@@ -50,7 +50,7 @@
               type="text"
               size="small"
               class="operation-success"
-              @click.native.prevent="toViewDetails(scope.$index, list)") 查看
+              @click.native.prevent="toCreate(scope.$in)") 编辑
             el-button(
               type="text"
               size="small"
@@ -201,15 +201,6 @@ export default {
      * id {int} 删除对象id
      */
     deleteFun() {
-      // TaskApi.deleteTaskApi({
-      //   id: id
-      // }).then(() => {
-      //   this.$message({
-      //     type: "success",
-      //     message: "删除成功!"
-      //   });
-      //   this.search();
-      // });
       this.$message({
         type: "error",
         message: "不允许删除我!"
@@ -230,34 +221,18 @@ export default {
       let text = ""; // 1 未开始 2 进行中 3 已结束
       switch (row.status) {
         case 1:
-          text = "未开始";
+          text = "开启";
           break;
         case 2:
-          text = "进行中";
-          break;
-        default:
-          text = "已结束";
+          text = "禁用";
           break;
       }
       return text;
     },
-    /**
-     * 查看详情
-     * index {int} 序列号
-     * rows {arrary} 当前页数据
-     * */
-    toViewDetails() {
-      // this.$global.pagination = this.pagination;
-      // this.$global.query = this.query;
-      // this.$router.push({
-      //   name: "taskDetail",
-      //   query: { id: rows[index].id }
-      // });
-    },
     // 去添加
     toCreate() {
       this.$router.push({
-        name: "taskCreate"
+        name: "accountCreate"
       });
     }
   },

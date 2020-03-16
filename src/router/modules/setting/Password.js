@@ -1,4 +1,4 @@
-import Password from "@/views/setting/password/Password.vue";
+import Password from "@/views/app/setting/password/Password.vue";
 
 export default [
   {

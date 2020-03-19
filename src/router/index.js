@@ -6,16 +6,13 @@
 import Layout from "@/views/Layout";
 import Login from "@/views/base/login/Login";
 import NoPage from "@/views/base/default/NoPage.vue";
-import Common from "./modules/Common";
-import Home from "./modules/Home";
-import Mall from "./modules/Mall";
-import Setting from "./modules/Setting";
+import Collect from "./Collect.js"
 
 let routes = [
   {
-    path: "/common",
+    path: "/myapp",
     component: Layout,
-    children: [...Common, ...Home, ...Mall, ...Setting]
+    children: [...Collect]
   },
   {
     path: "/login",
@@ -40,4 +37,7 @@ let routes = [
     }
   }
 ];
+
+console.log("main-routes", routes)
+
 export default routes;

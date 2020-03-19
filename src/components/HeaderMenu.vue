@@ -9,10 +9,14 @@
         text-color="#B8C3D1"
         active-text-color="#fff"
         router = true
-        @select="")
-        el-menu-item(v-for="(menu, index) in list", :key="index", v-text="menu.value", :index="menu.path")
+        @select="selectMenu")
+        el-menu-item(v-for="(menu, index) in list", 
+          :key="index", 
+          v-text="menu.value", 
+          :index="menu.path"
+          )
     .user
-      span.name(v-text="USER.username")
+      <!-- span.name(v-text="USER.username") -->
       span.quit(@click="logout") 退出
 </template>
 
@@ -23,46 +27,68 @@ export default {
   data() {
     return {
       activeIndex: "/home",
-      list: [
-        {
-          name: "home",
-          path: "/home",
-          value: "首页"
-        },
-        {
-          name: "mall",
-          path: "/mall",
-          value: "商城管理"
-        },
-        {
-          name: "setting",
-          path: "/setting",
-          value: "设置"
-        }
-      ]
+      list: []
     };
   },
+  computed: {
+    ...mapGetters("MENU", {
+      MENU: "getMenu",
+      MENU_TOP: "getMenuTop"
+    }),
+    ...mapGetters("USER", {
+      USER: "getUserInfo"
+    }),
+  },
   methods: {
-    ...mapActions("MENU", ["setMenuTop"]),
+    ...mapActions("MENU", ["setMenuLeft", "setMenuTop"]),
+    // 选中头部按钮
+    selectMenu(e) {
+      this.setActive(e)
+      this.MENU.forEach(i => {
+        if(e.indexOf(i.path) > -1 && i.children){
+          this.setMenuLeft(i.children)
+        }
+      })
+    },
+    // 设置当前
+    setActive(path){
+      this.list.some(i => {
+        if(path.indexOf(i.path) > -1){
+          this.activeIndex = i.path
+        }
+        return path.indexOf(i.path) > -1
+      })
+    },
+    // 设置头部按钮
+    initMenu() {
+      let list = []
+      this.MENU.forEach(i => {
+        if(i.meta.is_show) {
+        	let o = {
+        		name: i.name,
+        		value: i.value
+        	}
+          if(i.children && i.children.length) {
+            o.path = i.children[0].path
+          } else {
+            o.path = i.path
+          }
+        	list.push(o)
+        }
+      })
+      this.list = list
+      this.setMenuTop(list)
+    },
     // 退出
     async logout() {
       this.$router.push({
         name: "login"
       });
-      // Api.logout().then(() => {
-      //   this.$router.push({
-      //     name: "login"
-      //   });
-      // });
     }
   },
-  computed: {
-    ...mapGetters("USER", {
-      USER: "getUserInfo"
-    })
-  },
   mounted() {
-    this.activeIndex = "/" + this.$route.path.split("/")[1];
+    this.initMenu()
+    this.setActive(this.$route.path)
   }
 };
 </script>

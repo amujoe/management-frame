@@ -1,4 +1,15 @@
+/*
+ * @Author: amujoe
+ * @Date: 2020-03-13 17:26:28
+ * @Description: file content
+ */
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
+const path = require('path')
+
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 
 module.exports = {
   baseUrl: '/',
@@ -26,5 +37,9 @@ module.exports = {
     } else {
       // 为开发环境修改配置...
     }
+  },
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set('@', resolve('src'))
   }
 };

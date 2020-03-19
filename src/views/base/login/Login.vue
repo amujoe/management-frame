@@ -49,7 +49,7 @@ export default {
         type: "success"
       });
       this.$router.push({
-        name: "home"
+        name: "myapp_home"
       });
 
       // Api.login(this.info).then(res => {
